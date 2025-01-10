@@ -1,4 +1,4 @@
-package com.example.lazycolumn.model
+package com.example.lazycolumn.ui.theme
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp

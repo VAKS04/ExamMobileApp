@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.lazycolumn.R
-import com.example.lazycolumn.model.Dimensions
+import com.example.lazycolumn.ui.theme.Dimensions
 import com.example.lazycolumn.model.NavigationPath
 import com.example.lazycolumn.ui.theme.textColor
 import com.example.lazycolumn.view.Template.TemplateButton

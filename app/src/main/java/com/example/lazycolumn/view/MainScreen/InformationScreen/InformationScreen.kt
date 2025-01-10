@@ -27,7 +27,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import com.example.lazycolumn.model.Dimensions
+import com.example.lazycolumn.ui.theme.Dimensions
 import com.example.lazycolumn.ui.theme.backgroundColor
 import com.example.lazycolumn.ui.theme.textColor
 import com.example.lazycolumn.viewmodel.PeopleViewModel

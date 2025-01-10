@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view.MainScreen
+package com.example.lazycolumn.view
 
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -11,6 +11,7 @@ import com.example.lazycolumn.ui.theme.backgroundColor
 import com.example.lazycolumn.view.AuthorizationScreen.AuthorizationPage
 import com.example.lazycolumn.view.AuthorizationScreen.RegistrationPage
 import com.example.lazycolumn.view.MainScreen.InformationScreen.InformationScreen
+import com.example.lazycolumn.view.MainScreen.MainScreen
 import com.example.lazycolumn.viewmodel.PeopleViewModel
 import com.example.lazycolumn.viewmodel.UserViewModel
 
