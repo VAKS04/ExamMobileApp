@@ -1,8 +1,7 @@
-package com.example.lazycolumn.view
+package com.example.lazycolumn.view.MainScreen
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
@@ -24,10 +23,16 @@ import com.example.lazycolumn.R
 import com.example.lazycolumn.model.NavItem
 import com.example.lazycolumn.ui.theme.activeButton
 import com.example.lazycolumn.ui.theme.backgroundColor
+import com.example.lazycolumn.view.MainScreen.PeoplePage.PeoplePage
+import com.example.lazycolumn.view.MainScreen.SettingsPage.SettingsPage
 import com.example.lazycolumn.viewmodel.PeopleViewModel
+import com.example.lazycolumn.viewmodel.UserViewModel
 
 @Composable
-fun MainScreen(navController: NavController,viewModel: PeopleViewModel){
+fun MainScreen(
+    navController: NavController,
+    peopleViewModel: PeopleViewModel,
+    userViewModel: UserViewModel){
 
     val navItemList = listOf(
         NavItem(
@@ -78,7 +83,9 @@ fun MainScreen(navController: NavController,viewModel: PeopleViewModel){
             modifier = Modifier.padding(padding),
             selectedIndex = selectedIndex,
             navController = navController,
-            viewModel = viewModel)
+            peopleViewModel = peopleViewModel,
+            userViewModel = userViewModel
+        )
     }
 }
 
@@ -87,9 +94,11 @@ fun ChoosePage(
     modifier: Modifier = Modifier,
     selectedIndex:Int,
     navController: NavController,
-    viewModel: PeopleViewModel){
+    peopleViewModel: PeopleViewModel,
+    userViewModel: UserViewModel
+){
     when(selectedIndex){
-        0-> PeoplePage(modifier=modifier,navController =navController, viewModel = viewModel )
-        1-> SettingsPage(modifier=modifier)
+        0-> PeoplePage(modifier=modifier,navController =navController, viewModel = peopleViewModel)
+        1-> SettingsPage(modifier=modifier,userViewModel)
     }
 }

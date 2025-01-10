@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view
+package com.example.lazycolumn.view.MainScreen.SettingsPage
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -11,24 +11,32 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.lazycolumn.R
 import com.example.lazycolumn.ui.theme.itemColor
 import com.example.lazycolumn.ui.theme.textColor
 import com.example.lazycolumn.ui.theme.welcomeBarColor
-import com.example.lazycolumn.viewmodel.PeopleViewModel
+import com.example.lazycolumn.viewmodel.UserViewModel
 
-@Preview(showBackground = true)
 @Composable
 fun SettingsPage(
     modifier: Modifier = Modifier,
-//    viewModel: PeopleViewModel
+    viewModel: UserViewModel
 ){
+
+    val user by viewModel.user
+
+    val itemMenu = listOf(
+        "Сменить логин",
+        "Сменить пароль",
+    )
 
     Column(
         modifier = modifier.padding(5.dp),
@@ -45,59 +53,30 @@ fun SettingsPage(
         ) {
             Text(
                 modifier = Modifier.padding(15.dp),
-                text = "Добро пожаловать, Pagesdfasdfsadfasdfa!",
+                text = stringResource(id = R.string.welcome_to_user) + user!!.login,
                 color = textColor,
                 fontSize = 25.sp)
         }
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp)
-                .background(Color.Cyan),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
+        itemMenu.forEachIndexed(){indexed , iM->
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp)
+                    .clip(RoundedCornerShape(15.dp))
+                    .background(itemColor),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
 
-        ) {
-            Text(text = "Сменить пароль")
-        }
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp)
-                .clip(RoundedCornerShape(15.dp))
-                .background(itemColor),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-
-        ) {
-            Text(
-                text = "Сменить пароль",
-                color = textColor,
-                fontSize = 20.sp
-            )
-        }
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-
-        ) {
-            Text(text = "Сменить пароль")
-        }
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-
-        ) {
-            Text(text = "Сменить пароль")
+            ) {
+                Text(
+                    text = iM,
+                    color = textColor,
+                    fontSize = 20.sp
+                )
+            }
         }
     }
 }

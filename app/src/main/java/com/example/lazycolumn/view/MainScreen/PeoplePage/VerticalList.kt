@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view
+package com.example.lazycolumn.view.MainScreen.PeoplePage
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -29,6 +29,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.lazycolumn.model.NavigationPath
 import com.example.lazycolumn.ui.theme.itemColor
 import com.example.lazycolumn.viewmodel.PeopleViewModel
 
@@ -78,7 +79,7 @@ fun ItemList(
 
     fun changeValue(){
         viewModel.fetchPersonFromJson(context,id)
-        navController.navigate("information")
+        navController.navigate(NavigationPath.INFORMATION_PAGE)
     }
 
     Surface(

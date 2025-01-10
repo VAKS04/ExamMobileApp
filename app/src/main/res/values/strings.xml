@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">100 Великих мыслителей</string>
     <string name="login_button">Войти</string>
+    <string name="change_button">Изменить</string>
 
     <string name="authorization_inscription">Нет аккаунта? Кликните на надпись</string>
     <string name="registration_inscription">Есть аккаунта? Кликните на надпись</string>
+    <string name="welcome_to_user">Добро пожаловать, </string>
 
     <string name="login_field">Login</string>
     <string name="password1_field">Password</string>

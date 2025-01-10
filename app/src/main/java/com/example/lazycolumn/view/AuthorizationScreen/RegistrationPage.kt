@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view
+package com.example.lazycolumn.view.AuthorizationScreen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -8,9 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -22,89 +19,94 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.lazycolumn.R
-import com.example.lazycolumn.model.Dimensions
 import com.example.lazycolumn.model.NavigationPath
-import com.example.lazycolumn.ui.theme.buttonColor
 import com.example.lazycolumn.ui.theme.textColor
-import com.example.lazycolumn.viewmodel.PeopleViewModel
-import kotlin.math.sin
+import com.example.lazycolumn.view.Template.TemplateButton
+import com.example.lazycolumn.viewmodel.UserViewModel
+
 
 @Composable
-fun AuthorizationPage(navController: NavController,viewModel: PeopleViewModel){
+fun RegistrationPage(navController: NavController,viewModel: UserViewModel){
     val context = LocalContext.current
 
     var loginValue by remember {
         mutableStateOf("")
     }
-    var passwordValue by remember {
+
+    var passwordValue1 by remember {
+        mutableStateOf("")
+    }
+
+    var passwordValue2 by remember {
         mutableStateOf("")
     }
 
     Column(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
         TextField(
-            modifier = Modifier.width(Dimensions.textFieldWidth),
-            label = {
-                Text(
-                    stringResource(id = R.string.login_field)
-                )},
-            maxLines = 1,
-            singleLine = true,
             value = loginValue,
             onValueChange ={
                 newValue -> loginValue = newValue
-            }
-        )
+            },
+            label = {
+                Text(text = stringResource(id = R.string.login_field))
+            })
+        
+        Spacer(modifier = Modifier.height(5.dp))
+        
+        TextField(
+            value = passwordValue1,
+            onValueChange ={
+                newValue -> passwordValue1 = newValue
+            },
+            label = {
+                Text(
+                    text = stringResource(id = R.string.password1_field)
+                )
+            })
 
         Spacer(modifier = Modifier.height(5.dp))
 
         TextField(
-            modifier = Modifier.width(Dimensions.textFieldWidth),
+            value = passwordValue2,
+            onValueChange ={
+                newValue -> passwordValue2 = newValue
+            },
             label = {
                 Text(
-                    stringResource(id = R.string.password1_field)
-                )},
-            maxLines = 1,
-            singleLine = true,
-            value = passwordValue,
-            onValueChange ={
-                newValue -> passwordValue = newValue
-            }
-        )
+                    text = stringResource(id = R.string.password2_field)
+                )
+            })
 
         Row(modifier = Modifier.padding(15.dp)) {
             Text(
                 modifier = Modifier.clickable {
-                    navController.navigate(NavigationPath.REG_PAGE){
-                        popUpTo(NavigationPath.REG_PAGE){
+                    navController.navigate(NavigationPath.AUTH_PAGE){
+                        popUpTo(NavigationPath.AUTH_PAGE){
                             inclusive = true
                         }
-
                     }
                 },
-                text = stringResource(id = R.string.authorization_inscription),
+                text = stringResource(id = R.string.registration_inscription),
+                fontSize = 15.sp,
                 color = textColor,
-                fontSize = 15.sp
             )
         }
-        
-        Spacer(modifier = Modifier.height(20.dp))
 
-        LoginButton {
-            viewModel.authorization(
+        TemplateButton(onClick = {
+            viewModel.registration(
                 context,
                 loginValue,
-                passwordValue)
-        }
+                passwordValue1,
+                passwordValue2
+            )
+        }, text = stringResource(id = R.string.login_button))
     }
 }

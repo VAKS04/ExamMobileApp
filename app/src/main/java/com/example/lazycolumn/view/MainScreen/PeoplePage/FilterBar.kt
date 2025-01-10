@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view
+package com.example.lazycolumn.view.MainScreen.PeoplePage
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,12 +16,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lazycolumn.model.Country
 import com.example.lazycolumn.ui.theme.activeButton
-import com.example.lazycolumn.ui.theme.backgroundColor
 import com.example.lazycolumn.ui.theme.buttonColor
 import com.example.lazycolumn.ui.theme.textColor
 import com.example.lazycolumn.viewmodel.PeopleViewModel

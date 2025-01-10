@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view
+package com.example.lazycolumn.view.MainScreen.InformationScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -70,6 +70,7 @@ fun Header(name:String){
                 fontSize = Dimensions.headerTextSize
             )
         }
+
         HorizontalDivider(color = Color.Black, thickness = Dimensions.horizontalDivider)
 
     }
