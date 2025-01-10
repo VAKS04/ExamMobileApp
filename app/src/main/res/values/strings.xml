@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">100 Великих мыслителей</string>
+    <string name="login_button">Войти</string>
+
+    <string name="authorization_inscription">Нет аккаунта? Кликните на надпись</string>
+    <string name="registration_inscription">Есть аккаунта? Кликните на надпись</string>
+
+    <string name="login_field">Login</string>
+    <string name="password1_field">Password</string>
+    <string name="password2_field">Repeat password</string>
+
+    <string name="label_icon_home">Главная</string>
+    <string name="label_icon_settings">Настройки</string>
+
+    <string name="toast_user_not_found">Данного пользователя не существует</string>
+    <string name="toast_registered">Вы успешно зарегистрированы.</string>
+    <string name="toast_password_doesnt_match">Пароли не соответствуют</string>
+
+</resources>
