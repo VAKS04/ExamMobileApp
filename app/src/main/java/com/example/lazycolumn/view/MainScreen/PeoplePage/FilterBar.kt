@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lazycolumn.model.Country
+import com.example.lazycolumn.ui.theme.Dimensions
 import com.example.lazycolumn.ui.theme.activeButton
 import com.example.lazycolumn.ui.theme.buttonColor
 import com.example.lazycolumn.ui.theme.textColor
@@ -31,18 +32,22 @@ fun FilterBar(modifier: Modifier = Modifier, viewModel: PeopleViewModel){
     val filterKey by viewModel.filterKey
 
     LazyRow(
-        modifier = modifier.height(80.dp),
+        modifier = modifier.height(Dimensions.filterBarHeight),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(10.dp),
-        contentPadding = PaddingValues(start = 10.dp, end = 10.dp)
+        contentPadding = PaddingValues(
+            start = Dimensions.horizontalPadding,
+            end = Dimensions.horizontalPadding)
     ) {
         items(Country.entries){item->
             Box(
                 modifier = modifier
                     .size(
                         width = (item.displayName.length + 100).dp,
-                        height = 40.dp)
-                    .clip(RoundedCornerShape(100.dp))
+                        height = Dimensions.itemBarHeight)
+                    .clip(
+                        RoundedCornerShape(Dimensions.cornerRadius)
+                    )
                     .background(
                         if (filterKey == item) activeButton else buttonColor)
                     .clickable {
@@ -53,7 +58,7 @@ fun FilterBar(modifier: Modifier = Modifier, viewModel: PeopleViewModel){
                 Text(
                     text = item.displayName,
                     color = textColor,
-                    fontSize = 15.sp)
+                    fontSize = Dimensions.defaultTextSize)
             }
         }
     }

@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [People::class,Users::class], version = 1)
 abstract class MyDatabase():RoomDatabase() {
-    abstract fun peopleDao(): PeopleDao
+//    abstract fun peopleDao(): PeopleDao
 
     abstract fun usersDao():UsersDao
 

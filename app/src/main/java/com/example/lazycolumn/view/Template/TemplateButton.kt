@@ -30,7 +30,7 @@ fun TemplateButton(onClick: ()-> Unit, text:String){
             text = text,
             fontSize = 25.sp,
             textAlign = TextAlign.Center,
-            modifier = Modifier.width(120.dp)
+//            modifier = Modifier.width(120.dp)
         )
     }
 }

@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -63,7 +64,7 @@ fun AuthorizationPage(
             }
         )
 
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(Dimensions.minHeightSpace))
 
         TextField(
             modifier = Modifier.width(Dimensions.textFieldWidth),
@@ -72,6 +73,7 @@ fun AuthorizationPage(
                     stringResource(id = R.string.password1_field)
                 )},
             maxLines = 1,
+            visualTransformation = PasswordVisualTransformation(),
             singleLine = true,
             value = passwordValue,
             onValueChange ={
@@ -79,7 +81,7 @@ fun AuthorizationPage(
             }
         )
 
-        Row(modifier = Modifier.padding(15.dp)) {
+        Row(modifier = Modifier.padding(Dimensions.descriptionPadding)) {
             Text(
                 modifier = Modifier.clickable {
                     navController.navigate(NavigationPath.REG_PAGE){
@@ -91,11 +93,11 @@ fun AuthorizationPage(
                 },
                 text = stringResource(id = R.string.authorization_inscription),
                 color = textColor,
-                fontSize = 15.sp
+                fontSize = Dimensions.defaultTextSize
             )
         }
         
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(Dimensions.maxHeightSpace))
 
         TemplateButton(onClick = {
             viewModel.authorization(

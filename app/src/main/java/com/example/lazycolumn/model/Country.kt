@@ -7,6 +7,7 @@ enum class Country(val displayName:String){
     INDIA("Индия"),
     CHINA("Китай"),
     ROME("Рим"),
+    FRANCE("Франция"),
     IRELAND("Ирландия"),
     KAZAKHSTAN("Казахстан"),
     SAMANID_STATE("Самандия"),

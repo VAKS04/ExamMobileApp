@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -19,11 +20,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.lazycolumn.R
 import com.example.lazycolumn.model.NavigationPath
+import com.example.lazycolumn.ui.theme.Dimensions
 import com.example.lazycolumn.ui.theme.textColor
 import com.example.lazycolumn.view.Template.TemplateButton
 import com.example.lazycolumn.viewmodel.UserViewModel
@@ -51,6 +54,7 @@ fun RegistrationPage(navController: NavController,viewModel: UserViewModel){
         verticalArrangement = Arrangement.Center
     ) {
         TextField(
+            modifier = Modifier.width(Dimensions.textFieldWidth),
             value = loginValue,
             onValueChange ={
                 newValue -> loginValue = newValue
@@ -59,9 +63,11 @@ fun RegistrationPage(navController: NavController,viewModel: UserViewModel){
                 Text(text = stringResource(id = R.string.login_field))
             })
         
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(Dimensions.minHeightSpace))
         
         TextField(
+            modifier = Modifier.width(Dimensions.textFieldWidth),
+            visualTransformation = PasswordVisualTransformation(),
             value = passwordValue1,
             onValueChange ={
                 newValue -> passwordValue1 = newValue
@@ -72,9 +78,11 @@ fun RegistrationPage(navController: NavController,viewModel: UserViewModel){
                 )
             })
 
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(Dimensions.minHeightSpace))
 
         TextField(
+            modifier = Modifier.width(Dimensions.textFieldWidth),
+            visualTransformation = PasswordVisualTransformation(),
             value = passwordValue2,
             onValueChange ={
                 newValue -> passwordValue2 = newValue
@@ -85,7 +93,7 @@ fun RegistrationPage(navController: NavController,viewModel: UserViewModel){
                 )
             })
 
-        Row(modifier = Modifier.padding(15.dp)) {
+        Row(modifier = Modifier.padding(Dimensions.descriptionPadding)) {
             Text(
                 modifier = Modifier.clickable {
                     navController.navigate(NavigationPath.AUTH_PAGE){
@@ -95,7 +103,7 @@ fun RegistrationPage(navController: NavController,viewModel: UserViewModel){
                     }
                 },
                 text = stringResource(id = R.string.registration_inscription),
-                fontSize = 15.sp,
+                fontSize = Dimensions.defaultTextSize,
                 color = textColor,
             )
         }
@@ -107,6 +115,6 @@ fun RegistrationPage(navController: NavController,viewModel: UserViewModel){
                 passwordValue1,
                 passwordValue2
             )
-        }, text = stringResource(id = R.string.login_button))
+        }, text = stringResource(id = R.string.registration_button))
     }
 }

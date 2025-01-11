@@ -23,33 +23,41 @@ class UserViewModel: ViewModel() {
         _user.value = newUser
     }
 
-    fun updateData(newData:Users,context: Context){
+    fun updateLogin(context: Context, newLogin: String,){
         viewModelScope.launch {
             val database = MyDatabase.getDatabase(context)
             val users = database.usersDao()
-            val user:Users
+            var user:Users
 
-            if (newData.login.isNotEmpty()){
+            if (newLogin.isNotEmpty()){
                 user = Users(
                     id = _user.value!!.id,
-                    login = newData.login,
+                    login = newLogin,
                     password = _user.value!!.password
                 )
                 users.updateUser(user)
-
             }
-            else if (newData.password.isNotEmpty()){
+        }
+    }
+
+
+    fun updatePassword(context: Context, newPassword: String){
+        viewModelScope.launch {
+            val database = MyDatabase.getDatabase(context)
+            val users = database.usersDao()
+            var user: Users
+
+            if (newPassword.isNotEmpty()) {
                 user = Users(
                     id = _user.value!!.id,
                     login = _user.value!!.login,
-                    password = newData.password
+                    password = newPassword
                 )
                 users.updateUser(user)
-
             }
         }
-
     }
+
 
     private fun isPasswordsMatch(password1: String, password2: String):Boolean{
         return password1 == password2
@@ -60,7 +68,7 @@ class UserViewModel: ViewModel() {
             if (isPasswordsMatch(
                     password1 = password1,
                     password2 = password2
-                )) {
+                ) && login.isNotEmpty() && password1.isNotEmpty()) {
                 val database = MyDatabase.getDatabase(context)
                 val users = database.usersDao()
 
@@ -75,17 +83,24 @@ class UserViewModel: ViewModel() {
             }else{
                 Toast.makeText(
                     context,
-                    R.string.toast_password_doesnt_match,
+                    R.string.toast_check_your_data,
                     Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    fun authorization(context: Context, login:String,password:String){
+    fun authorization(context: Context, login:String, password:String){
         viewModelScope.launch {
             val dataBase = MyDatabase.getDatabase(context = context)
             val usersData = dataBase.usersDao()
 
+            if (login.isEmpty() || password.isEmpty()){
+                Toast.makeText(
+                    context,
+                    R.string.toast_check_your_data,
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
             val user = usersData.isExist(login,password)
 
             if (user == null){

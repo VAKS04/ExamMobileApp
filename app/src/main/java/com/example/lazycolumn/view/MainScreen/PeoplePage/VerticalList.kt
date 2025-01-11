@@ -30,6 +30,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.lazycolumn.model.NavigationPath
+import com.example.lazycolumn.ui.theme.Dimensions
 import com.example.lazycolumn.ui.theme.itemColor
 import com.example.lazycolumn.viewmodel.PeopleViewModel
 
@@ -45,9 +46,9 @@ fun VerticalList(navController: NavController,viewModel:PeopleViewModel){
     }
 
         LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            verticalArrangement = Arrangement.spacedBy(5.dp),
-            horizontalArrangement = Arrangement.spacedBy(5.dp),
+            columns = GridCells.Fixed(Dimensions.numberOfColumn),
+            verticalArrangement = Arrangement.spacedBy(Dimensions.spaceVerticalGrid),
+            horizontalArrangement = Arrangement.spacedBy(Dimensions.spaceVerticalGrid),
         ) {
             items(people){ person ->
                 ItemList(
@@ -55,7 +56,6 @@ fun VerticalList(navController: NavController,viewModel:PeopleViewModel){
                     viewModel = viewModel,
                     name = person.name,
                     id = person.id,
-                    description = person.description,
                     image = person.image)
             }
         }
@@ -67,9 +67,8 @@ fun ItemList(
     navController: NavController,
     viewModel: PeopleViewModel,
     id:Int=0,
-    name: String = "Name",
-    description:String="",
-    image:String=""
+    name: String,
+    image:String
 ) {
 
     val context = LocalContext.current
@@ -83,10 +82,10 @@ fun ItemList(
     }
 
     Surface(
-        shape = RoundedCornerShape(15.dp),
+        shape = RoundedCornerShape(Dimensions.cornerRadius),
         modifier = Modifier
             .clickable { changeValue() }
-            .padding(2.dp),
+            .padding(Dimensions.minPadding),
         color = itemColor
     ) {
         Column {
@@ -99,8 +98,11 @@ fun ItemList(
                     modifier = modifier
                         .aspectRatio(1f)
                         .fillMaxWidth()
-                        .padding(start = 10.dp, end = 10.dp, top = 10.dp)
-                        .clip(RoundedCornerShape(15.dp)),
+                        .padding(
+                            horizontal = Dimensions.itemListPadding,
+                            vertical = Dimensions.itemListPadding
+)
+                        .clip(RoundedCornerShape(Dimensions.cornerRadius)),
                     contentAlignment = Alignment.Center
 
                 ){
@@ -109,7 +111,7 @@ fun ItemList(
                         contentScale = ContentScale.Crop,
                         alignment = Alignment.TopStart,
                         contentDescription = "",
-                        modifier = Modifier.defaultMinSize(200.dp)
+                        modifier = Modifier.defaultMinSize(Dimensions.minSizeBox)
                     )
                 }
             }
@@ -117,7 +119,7 @@ fun ItemList(
             Row (
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp),
+                    .height(Dimensions.itemListHeight),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {

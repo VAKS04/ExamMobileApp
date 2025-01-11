@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">100 Великих мыслителей</string>
     <string name="login_button">Войти</string>
+    <string name="registration_button">Зарегестрироваться</string>
     <string name="change_button">Изменить</string>
 
     <string name="authorization_inscription">Нет аккаунта? Кликните на надпись</string>
-    <string name="registration_inscription">Есть аккаунта? Кликните на надпись</string>
+    <string name="registration_inscription">Есть аккаунт? Кликните на надпись</string>
     <string name="welcome_to_user">Добро пожаловать, </string>
 
     <string name="login_field">Login</string>
@@ -16,6 +17,7 @@
 
     <string name="toast_user_not_found">Данного пользователя не существует</string>
     <string name="toast_registered">Вы успешно зарегистрированы.</string>
-    <string name="toast_password_doesnt_match">Пароли не соответствуют</string>
+<!--    <string name="toast_password_doesnt_match">Пароли не соответствуют</string>-->
+    <string name="toast_check_your_data">Проверьте внесенные данные</string>
 
 </resources>
