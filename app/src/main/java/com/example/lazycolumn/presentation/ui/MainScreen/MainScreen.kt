@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view.MainScreen
+package com.example.lazycolumn.presentation.ui.MainScreen
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -23,8 +23,8 @@ import com.example.lazycolumn.R
 import com.example.lazycolumn.model.NavItem
 import com.example.lazycolumn.ui.theme.activeButton
 import com.example.lazycolumn.ui.theme.backgroundColor
-import com.example.lazycolumn.view.MainScreen.PeoplePage.PeoplePage
-import com.example.lazycolumn.view.MainScreen.SettingsPage.SettingsPage
+import com.example.lazycolumn.presentation.ui.MainScreen.PeoplePage.PeoplePage
+import com.example.lazycolumn.presentation.ui.MainScreen.SettingsPage.SettingsPage
 import com.example.lazycolumn.viewmodel.PeopleViewModel
 import com.example.lazycolumn.viewmodel.UserViewModel
 

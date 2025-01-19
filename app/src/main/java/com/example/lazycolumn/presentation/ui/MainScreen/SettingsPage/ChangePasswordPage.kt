@@ -1,10 +1,10 @@
-package com.example.lazycolumn.view.MainScreen.SettingsPage
+package com.example.lazycolumn.presentation.ui.MainScreen.SettingsPage
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.lazycolumn.R
-import com.example.lazycolumn.view.Template.TemplateChangePage
+import com.example.lazycolumn.presentation.ui.Template.TemplateChangePage
 
 @Preview(showBackground = true)
 @Composable

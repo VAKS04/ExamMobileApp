@@ -1,20 +1,17 @@
-package com.example.lazycolumn.view
+package com.example.lazycolumn.presentation.ui
 
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.lazycolumn.model.NavigationPath
 import com.example.lazycolumn.ui.theme.backgroundColor
-import com.example.lazycolumn.view.AuthorizationScreen.AuthorizationPage
-import com.example.lazycolumn.view.AuthorizationScreen.RegistrationPage
-import com.example.lazycolumn.view.MainScreen.InformationScreen.InformationScreen
-import com.example.lazycolumn.view.MainScreen.MainScreen
-import com.example.lazycolumn.view.MainScreen.SettingsPage.ChangeLoginPage
-import com.example.lazycolumn.view.MainScreen.SettingsPage.ChangePasswordPage
+import com.example.lazycolumn.presentation.ui.AuthorizationScreen.AuthorizationPage
+import com.example.lazycolumn.presentation.ui.AuthorizationScreen.RegistrationPage
+import com.example.lazycolumn.presentation.ui.MainScreen.InformationScreen.InformationScreen
+import com.example.lazycolumn.presentation.ui.MainScreen.MainScreen
 import com.example.lazycolumn.viewmodel.PeopleViewModel
 import com.example.lazycolumn.viewmodel.UserViewModel
 

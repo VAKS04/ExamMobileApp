@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view.MainScreen.InformationScreen
+package com.example.lazycolumn.presentation.ui.MainScreen.InformationScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view.MainScreen.SettingsPage
+package com.example.lazycolumn.presentation.ui.MainScreen.SettingsPage
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +16,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lazycolumn.R

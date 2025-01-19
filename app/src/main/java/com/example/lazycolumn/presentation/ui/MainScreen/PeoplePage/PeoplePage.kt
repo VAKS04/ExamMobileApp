@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view.MainScreen.PeoplePage
+package com.example.lazycolumn.presentation.ui.MainScreen.PeoplePage
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable

@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view.Template
+package com.example.lazycolumn.presentation.ui.Template
 
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button

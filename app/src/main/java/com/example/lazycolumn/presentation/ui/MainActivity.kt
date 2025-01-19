@@ -1,4 +1,4 @@
-package com.example.lazycolumn.view
+package com.example.lazycolumn.presentation.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
